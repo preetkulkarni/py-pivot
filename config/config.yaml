@@ -1,0 +1,17 @@
+
+# Master Sheet and Daily Dump Settings
+master_file: data/master_data.xlsx
+daily_data_folder: data/dump/
+sheet_name: DAILY DUMP
+
+# Output Settings
+output_file: outputs/master_updated.xlsx
+pivot_output_file: outputs/pivot_summary.xlsx
+
+# Duplication Settings
+deduplication:
+  enabled: false
+  columns: [] #need to add acc to data
+
+# Pivot Presets
+pivot_presets: {} #need to add acc to pref
