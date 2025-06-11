@@ -2,7 +2,7 @@
 # Master Sheet and Daily Dump Settings
 master_file: data/master_data.xlsx
 daily_data_folder: data/dump/
-sheet_name: DAILY DUMP
+sheet_name: in 
 
 # Output Settings
 output_file: outputs/master_updated.xlsx
