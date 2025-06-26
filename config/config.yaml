@@ -2,7 +2,7 @@
 # Master Sheet and Daily Dump Settings
 master_file: data/master_data.xlsx
 daily_data_folder: data/dump/
-sheet_name: in 
+sheet_name: Sheet1
 
 # Output Settings
 output_file: outputs/master_updated.xlsx
@@ -10,8 +10,43 @@ pivot_output_file: outputs/pivot_summary.xlsx
 
 # Duplication Settings
 deduplication:
-  enabled: false
-  columns: [] #need to add acc to data
+  enabled: true
+  columns: ["Date","Region","Product","Quantity","UnitPrice","StoreLocation","CustomerType","Discount","Salesperson","TotalPrice","PaymentMethod","Promotion","Returned","OrderID","CustomerName","ShippingCost","OrderDate","DeliveryDate","RegionManager"] #need to add acc to data
 
 # Pivot Presets
-pivot_presets: {} #need to add acc to pref
+pivot_presets:
+  sales_by_region:
+    index_cols: ["Region"]
+    columns: "Product"
+    values: "TotalPrice"
+    aggfunc: "sum"
+    filters:
+      RegionManager: "Eric"
+
+  quantity_by_store:
+    index_cols: ["StoreLocation"]
+    columns: "Product"
+    values: "Quantity"
+    aggfunc: "sum"
+    filters: {}
+
+  discount_by_customer_type:
+    index_cols: ["CustomerType"]
+    columns: "Product"
+    values: "Discount"
+    aggfunc: "mean"
+    filters: {}
+
+  sales_count_by_salesperson:
+    index_cols: ["Salesperson"]
+    columns: ""
+    values: "OrderID"
+    aggfunc: "count"
+    filters: {}
+
+  total_sales_by_region_manager:
+    index_cols: ["RegionManager"]
+    columns: ""
+    values: "TotalPrice"
+    aggfunc: "sum"
+    filters: {}
